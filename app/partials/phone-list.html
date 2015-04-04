@@ -9,7 +9,7 @@
         <option value="name">Alphabetical</option>
         <option value="age">Newest</option>
       </select>
-
+      <a href="#/phones/compare" ng-show="phonesToCompare" class="compare-phones">Compare phones</a>
     </div>
     <div class="col-md-10">
       <!--Body content-->
@@ -18,6 +18,7 @@
         <li ng-repeat="phone in phones | filter:query | orderBy:orderProp"
             class="thumbnail phone-listing">
           <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+          <input type="checkbox" title="add / remove to phones to compare" ng-click="updatePhonesToCompare(phone.id)">
           <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
           <p>{{phone.snippet}}</p>
         </li>
